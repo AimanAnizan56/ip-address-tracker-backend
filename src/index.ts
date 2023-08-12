@@ -20,7 +20,19 @@ const test_data = {
 app.use(json());
 app.use(
   cors({
-    origin: parsedHost.host,
+    origin: function (origin, callback) {
+      // disallow requests with no origin
+      // (like mobile apps or curl requests)
+      if (!origin) {
+        const message = 'The CORS policy for this site does not allow access with no Origin.';
+        return callback(new Error(message), false);
+      }
+      if (allowedHost.indexOf(origin) === -1) {
+        const message = 'The CORS policy for this site does not allow access from the specified Origin.';
+        return callback(new Error(message), false);
+      }
+      return callback(null, true);
+    },
   })
 );
 
