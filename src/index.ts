@@ -53,3 +53,5 @@ app.get('/lookup-ip/domain/:domain', (req: Request, res: Response) => {
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running`);
 });
+
+export default app;
