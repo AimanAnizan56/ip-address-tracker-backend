@@ -7,8 +7,7 @@
     "build": "npx tsc",
     "start": "node dist/index.js",
     "predev": "npm run build",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
-    "vercel-build": "echo Vercel Build triggered"
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\""
   },
   "author": "anizanaimann1@gmail.com",
   "license": "MIT",
