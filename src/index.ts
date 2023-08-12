@@ -24,11 +24,11 @@ app.use(
       // disallow requests with no origin
       // (like mobile apps or curl requests)
       if (!origin) {
-        const message = 'The CORS policy for this site does not allow access with no Origin.';
+        const message = 'Someone just trying to access the API from browser!';
         return callback(new Error(message), false);
       }
       if (allowedHost.indexOf(origin) === -1) {
-        const message = 'The CORS policy for this site does not allow access from the specified Origin.';
+        const message = `Someone just trying to access the API from their website! The origins are ${origin}`;
         return callback(new Error(message), false);
       }
       return callback(null, true);
