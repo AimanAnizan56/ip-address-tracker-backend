@@ -1,4 +1,5 @@
 import express, { Express, Request, Response, json } from 'express';
+import ServerlessHttp from 'serverless-http';
 import cors from 'cors';
 import 'dotenv/config';
 
@@ -54,4 +55,4 @@ app.listen(port, () => {
   console.log(`⚡️[server]: Server is running`);
 });
 
-export default app;
+export default ServerlessHttp(app);
